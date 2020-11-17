@@ -1,41 +1,29 @@
 <!doctype html>
 <html lang="en">
-<head>
-<style>
-table {
-    font-size: 18px;
-    width: 400px;
-    background: white;
-    font-weight: normal;
-    background: peachpuff;
-    border:  solid #e06219;
-    }
-h1{ font-size: 18px; }
-</style>
+<head>  
+   <style>
+       input{
+           position: relative;
+           padding: 15px 30px;
+           border: 1px bold;
+           margin: 10px 20px;
+           font-family: 'Montserrat', sans-serif;
+           text-transform: uppercase;
+           letter-spacing: 2px;
+       }
+   </style>
 </head>
+<?php session_start(); ?>
+<body>
+<form action="login.php" method="post">
+    <label>login
+        <input type="login" name="login">
+    </label>
+    <label>password
+        <input type="password" name="password">
+    </label>
+    <input type="submit" value="send">
+</form>
 
-<body> <?php
-echo 'Array <br>';
-
-for ($i = 0; $i < 5; $i++){
-    for ($j=0; $j < 10; $j++){
-       $numbers[$i][$j] = rand(10,90);
-       echo ' | '.$numbers[$i][$j];
-    }
-    echo '<br>';
-}
-
-echo '<center>';
-echo '<br><h1> HTML-table</h1>';
-echo '<table cellpadding="15" cellspacing="0" border="1">';
-foreach ($numbers as $key => $value) {
-    echo "<tr>";
-    for ($j=0; $j < 10; $j++){
-        echo "<td>".$value[$j]."</td>";
-    }
-    echo "</tr>";
-}
-echo '</table>';
-echo '</center>';
-?> </body>
+</body>
 </html>
