@@ -1,16 +1,21 @@
-<?php
-$login_a='admin';
-$password_a = '1111';
+<!doctype html>
+<html lang="en">
+<head> 
 
+<?php
+$login_a='user';
+$password_a = '1111';
 if(isset($_POST['submit'])){
-    if( (md5(md5($_POST['password'])) == $password_a) && ($_POST['email'] == $login_a)){
+    if(($_POST['password'] == $password_a) && ($_POST['login'] == $login_a)){
         $_SESSION['auth'] = true;
+        echo 'Hello, you are authorized!!!'; 
         header('Location: restricted.php');
     }
     else{
-        unset($_SESSION['id']); unset($_SESSION['email']);
-        unset($_SESSION['password']);
+        echo 'Hello, you are not authorized!!!';
         header('Location: login.php');
     }
 }
 ?>
+</head>
+</html>
