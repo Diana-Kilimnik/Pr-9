@@ -15,10 +15,8 @@ $sql = "SELECT * FROM `users`";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        if($_POST['login'] == $row["login"] && $_POST['password'] == $row["password"])
-            echo '<br> Hello, you are logged in!!! <br>';   
-    }
-    echo '<br>Your login: ' . $_POST['login'];echo '<br>';
+    $conn -> query ("INSERT INTO users (first_name, last_name, password, login, id_role)
+     VALUES ('$_POST[first_name]', '$_POST[last_name]','$_POST[password]','$_POST[login]', 1)");
+     echo '<br><br> You are registrated successfuly!!! <br>';
 }
 ?>
